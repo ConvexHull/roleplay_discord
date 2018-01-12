@@ -5,7 +5,10 @@ import sys
 
 np.random.seed(0)
 
-query = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+if len(sys.argv) < 2:
+    print "Usage: python prob_dice.py <Sum to Hit> <Number of Trials> " \
+          "<Number of Sides>"
+query = int(sys.argv[1])
 trials = int(sys.argv[2]) if len(sys.argv) > 2 else 1
 sides = json.loads(sys.argv[3]) if len(sys.argv) > 3 else 6
 die = sides if isinstance(sides, list) else range(1, sides+1)
